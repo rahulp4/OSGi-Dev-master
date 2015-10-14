@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1444825597524
+Build-Jdk: 1.7.0_45
+Built-By: rpoddar
+Bundle-ClassPath: WEB-INF/classes,.,WEB-INF/classes,WEB-INF/lib
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGi Sample :: REST :: Jersey as a Bundle
+Bundle-SymbolicName: rest-with-jersey-as-a-bundle
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: dependencies
+Embed-Directory: WEB-INF/lib
+Export-Package: com.wabapp;version="0.0.1";uses:="javax.ws.rs,javax.ws.r
+ s.core"
+Import-Package: javax.ws.rs;version="[1.1,2)",javax.ws.rs.core;version="
+ [1.1,2)",com.sun.jersey.api.core,com.sun.jersey.spi.container.servlet
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-2.4.1.201501161923
+Web-ContextPath: rest-bundle
+Webapp-Context: rest-bundle

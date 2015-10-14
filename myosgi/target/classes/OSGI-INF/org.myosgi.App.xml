@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="org.myosgi.App">
+        <implementation class="org.myosgi.App"/>
+        <service servicefactory="false">
+            <provide interface="org.myosgi.App"/>
+        </service>
+        <property name="service.pid" value="org.myosgi.App"/>
+    </scr:component>
+</components>

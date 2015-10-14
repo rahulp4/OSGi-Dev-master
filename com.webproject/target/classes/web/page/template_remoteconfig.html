@@ -1,0 +1,58 @@
+ 
+        <h1>System Remote Connection Configuration</h1>
+        
+        
+          <legend><span class="number">1</span>Information</legend>
+          <label for="name">Connectivity Name:</label>
+          <input type="text" id="connectionName" name="connectionName" required=true>
+          
+          <label for="mail">Connectivity ID:</label>
+          <input type="text" id="connectionId" name="connectionId" required=true>
+
+          <label for="mail">Remote Connectivity Type:</label>
+          <!-- <input type="text" id="remoteConnType" name="remoteConnType" required=true> -->
+          
+          <label for="mail">JSON Message Format</label>
+		  
+		  <textarea name="jsonString" id="jsonString" cols="25" rows="7"></textarea> 
+		 <SELECT name="remoteConnType" >
+		 %remoteconndatatypes%
+<!-- <OPTION value="REST">REST</OPTION>
+                    <OPTION value="MQTT">REST</OPTION>
+                    <OPTION value="WebSocket">REST</OPTION>
+ -->                                        
+          </SELECT>
+          <label for="mail">REST URL:</label>
+          <input type="url" id="remoteRESTConnURL" name="remoteRESTConnURL" required=true>
+          
+          <label for="mail">Security Key:</label>
+          <input type="text" id="securityKey" name="securityKey" required=true>
+
+                    
+
+<INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+ 
+    <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+<!-- <TABLE ID="dataTable" border="1" STYLE="border width="300" orange dashed;background color:#F0E68C;table-row width:2;"> -->	
+<TABLE id="dataTable" width="350px" border="1">
+        <TR>
+            <TD><INPUT type="checkbox" name="chk" id="chk"/></TD>
+            <TD><INPUT type="text" name="fieldNames" id="fieldNames"/></TD>
+            <TD>
+                <SELECT name="dataTypes" >
+                %fielddatatypeslist%
+                <!-- 
+                    <OPTION value="String">String</OPTION>
+                    <OPTION value="Integer">Integer</OPTION>
+                    <OPTION value="Double">Double</OPTION>
+                    <OPTION value="Boolean">Boolean</OPTION>
+                    <OPTION value="Char">Char</OPTION>
+                     -->
+                </SELECT>
+            </TD>
+        </TR>
+    </TABLE>
+ 
+
+        <button type="submit">Next...</button>

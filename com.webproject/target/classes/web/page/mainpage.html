@@ -1,0 +1,146 @@
+
+  <head>
+        <meta charset="utf-8">
+        <iinitial-scale=1.0">
+        <title>System Configuration</title>
+
+        <link rel="stylesheet" href="files/page/css/logincss.css">
+        <link rel="stylesheet" href="files/page/css/extcss.css">
+        <link rel="stylesheet" href="files/page/css/listconnprofile.css">
+        <link href='http://fonts.godasdasogleapis.com/css?family=Nunito:800,800' rel='stylesheet' type='text/css'>
+        
+    <SCRIPT language="javascript">
+    function addRowLocal(tableID) {
+    	 
+        var table = document.getElementById(tableID);
+
+        var rowCount = table.rows.length;
+        var row = table.insertRow(rowCount);
+
+        var colCount = table.rows[1].cells.length;
+
+        for(var i=0; i<colCount; i++) {
+
+            var newcell = row.insertCell(i);
+
+            newcell.innerHTML = table.rows[1].cells[i].innerHTML;
+            //alert(newcell.childNodes);
+            switch(newcell.childNodes[0].type) {
+                case "text":
+                        newcell.childNodes[0].value = "";
+                        break;
+                case "checkbox":
+                        newcell.childNodes[0].checked = false;
+                        break;
+                case "select-one":
+                        newcell.childNodes[0].selectedIndex = 0;
+                        break;
+            }
+        }
+    }
+
+    function deleteRowLocal(tableID) {
+        try {
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+
+        for(var i=0; i<rowCount; i++) {
+            var row = table.rows[i];
+            var chkbox = row.cells[0].childNodes[0];
+            if(null != chkbox && true == chkbox.checked) {
+                if(rowCount <= 1) {
+                    alert("Cannot delete all the rows.");
+                    break;
+                }
+                table.deleteRow(i);
+                rowCount--;
+                i--;
+            }
+
+
+        }
+        }catch(e) {
+            alert(e);
+        }
+    }
+    
+    function addRow(tableID) {
+ 
+            var table = document.getElementById(tableID);
+ 
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+ 
+            var colCount = table.rows[0].cells.length;
+ 
+            for(var i=0; i<colCount; i++) {
+ 
+                var newcell = row.insertCell(i);
+ 
+                newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+                //alert(newcell.childNodes);
+                switch(newcell.childNodes[0].type) {
+                    case "text":
+                            newcell.childNodes[0].value = "";
+                            break;
+                    case "checkbox":
+                            newcell.childNodes[0].checked = false;
+                            break;
+                    case "select-one":
+                            newcell.childNodes[0].selectedIndex = 0;
+                            break;
+                }
+            }
+        }
+ 
+        function deleteRow(tableID) {
+            try {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+ 
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    if(rowCount <= 1) {
+                        alert("Cannot delete all the rows.");
+                        break;
+                    }
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+ 
+ 
+            }
+            }catch(e) {
+                alert(e);
+            }
+        }
+ 
+    </SCRIPT>
+    </head>
+    <body>
+	  <div id="WebApp">
+      	<header id="header">
+		<h1 id="title">System Administration</h1>
+		</header>
+	  </div>
+
+	  <div id="webbody" class="ScrollStyle">
+      <fieldset>
+	  <form action="/init" method="post">	  
+	  
+	  %embedchild%
+	  <div id="hiddenFields">
+	  %hiddenfields%
+	  </div>
+	  
+	  </form>
+	  </fieldset>
+	  </div>
+		<div style="text-align:center" class="iLayer" id="idcopyright" title="%id%">	
+			<div class="iFooter">&copy;2015 Wiring Virtual & Real World...</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component enabled="false" name="ch.x42.osgi.samples.osgi101.app.servlets.PathsStorage">
+        <implementation class="ch.x42.osgi.samples.osgi101.app.servlets.PathsStorage"/>
+        <service servicefactory="false">
+            <provide interface="com.intellizonex.gateway.core.Storage"/>
+        </service>
+        <property name="service.pid" value="ch.x42.osgi.samples.osgi101.app.servlets.PathsStorage"/>
+    </scr:component>
+</components>

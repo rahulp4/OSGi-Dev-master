@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1444825595693
+Build-Jdk: 1.7.0_45
+Built-By: rpoddar
+Bundle-Activator: org.myosgi.MyActivator
+Bundle-Description: The Apache Software Foundation provides support for 
+ the Apache community of open-source software projects.    The Apache pr
+ ojects are characterized by a collaborative, consensus based developmen
+ t process, an open and    pragmatic software license, and a desire to c
+ reate high quality software that leads the way in its field.    We cons
+ ider ourselves not simply a group of projects sharing a server, but rat
+ her a community of developers    and users.
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: myosgi
+Bundle-SymbolicName: myosgi
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.myosgi;uses:="org.osgi.framework";version="0.0.1.SNA
+ PSHOT"
+Import-Package: org.osgi.framework;version="[1.5,2)"
+Provide-Capability: osgi.service;effective:=active;objectClass="org.myos
+ gi.App"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Service-Component: OSGI-INF/org.myosgi.App.xml
+Tool: Bnd-2.3.0.201405100607

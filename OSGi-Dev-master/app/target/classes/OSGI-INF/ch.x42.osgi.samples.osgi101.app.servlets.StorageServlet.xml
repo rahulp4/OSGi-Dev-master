@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="ch.x42.osgi.samples.osgi101.app.servlets.StorageServlet">
+        <implementation class="ch.x42.osgi.samples.osgi101.app.servlets.StorageServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="osgi101.servlet.method">
+            POST
+            GET
+        </property>
+        <property name="osgi101.servlet.path" value="/store"/>
+        <property name="add.metadata" type="Boolean" value="true"/>
+        <property name="service.pid" value="ch.x42.osgi.samples.osgi101.app.servlets.StorageServlet"/>
+        <reference name="storage" interface="com.intellizonex.gateway.core.Storage" cardinality="1..1" policy="static" bind="bindStorage" unbind="unbindStorage"/>
+    </scr:component>
+</components>

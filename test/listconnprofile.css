@@ -1,0 +1,36 @@
+* {font-family: Helvetica Neue, Arial, sans-serif; }
+
+body {background: repeating-linear-gradient(
+  to right,
+  #C1C1DA,
+  #C1C1DA 2px,
+  #C8C8DE 2px,
+  #C8C8DE 4px
+);}
+
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	background: #E6EAE9;
+}
+
+a {
+	color: #c75f3e;
+}
+
+
+h1, table { text-align: center; }
+
+table {border-collapse:collapse;  width: 100%; margin: 0 auto 0rem;}
+
+th, td { padding: 0.1rem; font-size: 0.1rem; }
+
+tr {background: hsl(90%, 50%, 80%); }
+
+tr, td { transition: .1s ease-in; } 
+
+
+
+
+tr:hover:not(#firstrow), tr:hover td:empty {background: #ff0; pointer-events: visible;}
+tr:hover:not(#firstrow) { transform: scale(1.2); font-weight: 700; box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.5);}

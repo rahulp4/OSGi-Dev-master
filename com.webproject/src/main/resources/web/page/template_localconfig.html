@@ -1,0 +1,58 @@
+	
+        <h1>Local Connection Configuration</h1>
+        
+        
+          <legend><span class="number">1</span>Information</legend>
+          <label for="name">Device Name:</label>
+          <input type="text" id="locDeviceName" name="locDeviceName" required=true>
+          
+          <label for="mail">Device ID:</label>
+          <input type="text" id="locDeviceId" name="locDeviceId" required=true>
+
+          <label for="mail">Local Connectivity Type:</label>
+          <input type="text" id="locConnType" name="locConnType" required=true>
+
+          <label for="mail">Port Name:</label>
+          <input type="text" id="locPortName" name="locPortName" required=true>
+
+          <label for="mail">Data Size:</label>
+          <input type="number" id="locDataSize" name="locDataSize" required=true>
+
+          <label for="mail">Field Mapping:</label>
+          <input type="text" id="field1" name="field1" required=true>
+                    
+        
+ 
+
+<INPUT type="button" value="Add Row" onclick="addRowLocal('dataTable')" />
+ 
+    <INPUT type="button" value="Delete Row" onclick="deleteRowLocal('dataTable')" />
+
+<TABLE id="dataTable" width="350px" border="1">
+ <tr>
+    <th>Field Id</th>
+    <th>Field From</th>
+    <th>Field To</th>
+
+  </tr>
+        <TR>
+            <TD><INPUT type="checkbox" name="chk" id="chk"/></TD>
+            <TD>
+                <SELECT name="remoteFieldNames" >
+			    <!-- 
+			    <OPTION value="String">String</OPTION>
+                    <OPTION value="Integer">Integer</OPTION>
+                    <OPTION value="Double">Double</OPTION>
+                    <OPTION value="Boolean">Boolean</OPTION>
+                    <OPTION value="Char">Char</OPTION>
+                 -->
+                %remotefielddatalist%
+                </SELECT>
+            </TD>
+			<TD><INPUT type="text" name=localFieldNames" id="jsonKey"/></TD>
+	
+        </TR>
+    </TABLE>
+ 
+
+        <button type="submit">Save Config</button>

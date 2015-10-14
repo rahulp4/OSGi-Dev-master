@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1444825578573
+Build-Jdk: 1.7.0_45
+Built-By: rpoddar
+Bundle-Activator: com.intellizones.gateway.webproject.Activator
+Bundle-ClassPath: .,commons-io-2.4.jar,gson-2.3.1.jar,commons-lang-2.6.j
+ ar,com.dataobjects-0.0.1-SNAPSHOT.jar,com.datastoremanager-0.0.1-SNAPSH
+ OT.jar,com.jsonhandler-0.0.1-SNAPSHOT.jar,com.datahandler-0.0.1-SNAPSHO
+ T.jar,json-20140107.jar
+Bundle-Description: The Apache Software Foundation provides support for 
+ the Apache community of open-source software projects.    The Apache pr
+ ojects are characterized by a collaborative, consensus based developmen
+ t process, an open and    pragmatic software license, and a desire to c
+ reate high quality software that leads the way in its field.    We cons
+ ider ourselves not simply a group of projects sharing a server, but rat
+ her a community of developers    and users.
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: com.webproject
+Bundle-SymbolicName: com.webproject
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: commons-io,gson,commons-lang,com.dataobjects,com.datas
+ toremanager,com.jsonhandler,com.datahandler,json
+Embedded-Artifacts: commons-io-2.4.jar;g="commons-io";a="commons-io";v="
+ 2.4",gson-2.3.1.jar;g="com.google.code.gson";a="gson";v="2.3.1",commons
+ -lang-2.6.jar;g="commons-lang";a="commons-lang";v="2.6",com.dataobjects
+ -0.0.1-SNAPSHOT.jar;g="com.dataobjects";a="com.dataobjects";v="0.0.1-SN
+ APSHOT",com.datastoremanager-0.0.1-SNAPSHOT.jar;g="com.datastoremanager
+ ";a="com.datastoremanager";v="0.0.1-SNAPSHOT",com.jsonhandler-0.0.1-SNA
+ PSHOT.jar;g="com.jsonhandler";a="com.jsonhandler";v="0.0.1-SNAPSHOT",co
+ m.datahandler-0.0.1-SNAPSHOT.jar;g="com.datahandler";a="com.datahandler
+ ";v="0.0.1-SNAPSHOT",json-20140107.jar;g="org.json";a="json";v="2014010
+ 7"
+Export-Package: com.intellizones.gateway.webproject.dto;version="0.0.1.S
+ NAPSHOT"
+Import-Package: javax.servlet,javax.servlet.http,javax.xml.namespace,jav
+ ax.xml.parsers,javax.xml.transform,javax.xml.transform.dom,javax.xml.tr
+ ansform.stream,javax.xml.xpath,org.myosgi;version="[0.0,1)",org.osgi.fr
+ amework;version="[1.5,2)",org.osgi.service.http;version="[1.2,2)",org.o
+ sgi.util.tracker;version="[1.4,2)",org.w3c.dom,org.xml.sax,org.xml.sax.
+ helpers
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607

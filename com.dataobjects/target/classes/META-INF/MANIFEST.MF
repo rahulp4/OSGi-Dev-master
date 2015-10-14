@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1444825599078
+Build-Jdk: 1.7.0_45
+Built-By: rpoddar
+Bundle-Activator: com.intellizones.gateway.dataobjects.DataObjectsActiva
+ tor
+Bundle-ClassPath: .,gson-2.3.1.jar
+Bundle-Description: The Apache Software Foundation provides support for 
+ the Apache community of open-source software projects.    The Apache pr
+ ojects are characterized by a collaborative, consensus based developmen
+ t process, an open and    pragmatic software license, and a desire to c
+ reate high quality software that leads the way in its field.    We cons
+ ider ourselves not simply a group of projects sharing a server, but rat
+ her a community of developers    and users.
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: com.dataobjects
+Bundle-SymbolicName: com.dataobjects
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: gson
+Embedded-Artifacts: gson-2.3.1.jar;g="com.google.code.gson";a="gson";v="
+ 2.3.1"
+Export-Package: com.intellizones.gateway.dataobjects;uses:="org.osgi.fra
+ mework";version="0.0.1.SNAPSHOT",com.intellizones.gateway.dataobjects.e
+ xception;version="0.0.1.SNAPSHOT"
+Import-Package: org.osgi.framework;version="[1.5,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607
