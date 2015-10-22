@@ -39,10 +39,17 @@ public class DocXPath {
 		xPathKeyValue	=	new HashMap<String, String>();
 	}
 	
-			private DocumentBuilderFactory domFactory =	null; 
-			private DocumentBuilder builder =	null;
-			private Document doc =	null;
-			private XPath xpath =	null;
+	private DocumentBuilderFactory domFactory =	null; 
+	private DocumentBuilder builder =	null;
+	private Document doc =	null;
+	public Document getDoc() {
+		return doc;
+	}
+	public void setDoc(Document doc) {
+		this.doc = doc;
+	}
+
+	private XPath xpath =	null;
 			
 			
 	public void initDocumentBuilder(){
@@ -66,12 +73,12 @@ public class DocXPath {
 			XPathExpression expr = xpath.compile(xPath);
 		    //Object result = expr.evaluate(doc, XPathConstants.NODESET);
 		    Object result = expr.evaluate(doc, XPathConstants.NODE);
-		    System.out.println(result.getClass());
+		    //System.out.println(result.getClass());
 		    NodeList nodes = (NodeList) result;
 		    for (int i = 0; i < nodes.getLength(); i++) {
 		    	nodes.item(i).getNodeName();
 		    	nodes.item(i).getNextSibling();
-		    	System.out.println("\n");
+		    	//System.out.println("\n");
 		    	String nodeValue	=	nodes.item(i).getNodeValue();
 		    	nodes.item(i).setNodeValue(value);
 		    	
@@ -101,13 +108,13 @@ public class DocXPath {
 	    XPathExpression expr = xpath.compile(xPath);
 	    //Object result = expr.evaluate(doc, XPathConstants.NODESET);
 	    Object result = expr.evaluate(doc, XPathConstants.NODE);
-	    System.out.println(result.getClass());
+	    //System.out.println(result.getClass());
 	    NodeList nodes = (NodeList) result;
 	    for (int i = 0; i < nodes.getLength(); i++) {
 	    	
 	    	nodes.item(i).getNodeName();
 	    	nodes.item(i).getNextSibling();
-	    	System.out.println("\n");
+	    	//System.out.println("\n");
 	    	String nodeValue	=	nodes.item(i).getNodeValue();
 	    	if(nodeValue==null){
 	    		return null;

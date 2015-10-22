@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1444825602808
+Bnd-LastModified: 1445343676272
 Build-Jdk: 1.7.0_45
 Built-By: rpoddar
 Bundle-Activator: com.intellizones.gateway.datastoremanager.DataStoreMan
  agerActivator
 Bundle-ClassPath: .,gson-2.3.1.jar,com.dataobjects-0.0.1-SNAPSHOT.jar,co
- m.datahandler-0.0.1-SNAPSHOT.jar,json-20140107.jar
+ m.datahandler-0.0.1-SNAPSHOT.jar,json-20140107.jar,commons-lang3-3.4.ja
+ r
 Bundle-Description: The Apache Software Foundation provides support for 
  the Apache community of open-source software projects.    The Apache pr
  ojects are characterized by a collaborative, consensus based developmen
@@ -21,12 +22,14 @@ Bundle-SymbolicName: com.datastoremanager
 Bundle-Vendor: The Apache Software Foundation
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Embed-Dependency: gson,com.dataobjects,com.datahandler,json
+Embed-Dependency: gson,com.dataobjects,com.datahandler,json,commons-lang
+ 3
 Embedded-Artifacts: gson-2.3.1.jar;g="com.google.code.gson";a="gson";v="
  2.3.1",com.dataobjects-0.0.1-SNAPSHOT.jar;g="com.dataobjects";a="com.da
  taobjects";v="0.0.1-SNAPSHOT",com.datahandler-0.0.1-SNAPSHOT.jar;g="com
  .datahandler";a="com.datahandler";v="0.0.1-SNAPSHOT",json-20140107.jar;
- g="org.json";a="json";v="20140107"
+ g="org.json";a="json";v="20140107",commons-lang3-3.4.jar;g="org.apache.
+ commons";a="commons-lang3";v="3.4"
 Export-Package: com.intellizones.gateway.datastoremanager;uses:="org.osg
  i.framework";version="0.0.1.SNAPSHOT",com.intellizones.gateway.datastor
  emanager.util;uses:="org.w3c.dom";version="0.0.1.SNAPSHOT"

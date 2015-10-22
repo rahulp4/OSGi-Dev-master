@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1444825599078
+Bnd-LastModified: 1445343672324
 Build-Jdk: 1.7.0_45
 Built-By: rpoddar
 Bundle-Activator: com.intellizones.gateway.dataobjects.DataObjectsActiva
@@ -24,8 +24,8 @@ Embed-Dependency: gson
 Embedded-Artifacts: gson-2.3.1.jar;g="com.google.code.gson";a="gson";v="
  2.3.1"
 Export-Package: com.intellizones.gateway.dataobjects;uses:="org.osgi.fra
- mework";version="0.0.1.SNAPSHOT",com.intellizones.gateway.dataobjects.e
- xception;version="0.0.1.SNAPSHOT"
-Import-Package: org.osgi.framework;version="[1.5,2)"
+ mework,org.w3c.dom";version="0.0.1.SNAPSHOT",com.intellizones.gateway.d
+ ataobjects.exception;version="0.0.1.SNAPSHOT"
+Import-Package: org.osgi.framework;version="[1.5,2)",org.w3c.dom
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
 Tool: Bnd-2.3.0.201405100607

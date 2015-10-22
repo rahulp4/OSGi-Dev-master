@@ -1,6 +1,5 @@
 package com.intellizones.gateway.webproject.httphandler;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -109,12 +108,12 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 		    	connectionConfigDTO.setRemoteConnType(req.getParameter("remoteRESTConnURL"));
 		    } else if(name.equals("securityKey")){
 		    	connectionConfigDTO.setSecurityKey(req.getParameter("securityKey"));
-		    	ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), req.getParameter("securityKey"));
+		    	//ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), req.getParameter("securityKey"));
 		    } else if(name.equals("jsonString")){
 		    	connectionConfigDTO.setJsonString(req.getParameter("jsonString"));
 		    	IDataFormatHandler	jsonHandler	=	new JSONDataFormatHandler();
 		    	boolean isValid	=	jsonHandler.isValidFormat(connectionConfigDTO);
-		    	ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), "Validation "+isValid+req.getParameter("jsonString"));
+		    	//ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), "Validation "+isValid+req.getParameter("jsonString"));
 		    } 
 		    
 		    
@@ -124,7 +123,7 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 		    	dataTypes	=	values;
 		    }
 		    connectionConfigDTO.setTenantID("MyTenant");		    
-		    ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(),name + ": " + Arrays.toString(values));
+		    //ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(),name + ": " + Arrays.toString(values));
 		}
 		
 		setFieldValues(connectionConfigDTO,fieldNames,dataTypes);
@@ -147,8 +146,7 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 		}
 		connectionConfigDTO.setRemoteDataFieldsKeyMap(hashMap);
 		connectionConfigDTO.setXmlString(finalXML);
-		
-		
+		connectionConfigDTO.setXmlDocument(jsonParsing.getDocXPath().getDoc());
 		return connectionConfigDTO;
 	}
 	
@@ -158,7 +156,6 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 				ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), fieldNames[index]+": "+dataTypes[index]);
 				connectionConfigDTO.addFieldAndDataType(fieldNames[index], dataTypes[index]);
 			}
-			
 		}
 	}
 	
@@ -171,7 +168,7 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 			 
 			 tempValue	=	StringUtils.replace(remoteConnDataTypeOption, IHttpHandlers.DELIMITER_DATATYPENAME, value);
 			 tempValue	=	StringUtils.replace(tempValue, IHttpHandlers.DELIMITER_DATATYPEID, value);			    		 
-		     System.out.println(tempValue);
+		     //System.out.println(tempValue);
 		     remoteConnDataTypeSB.append(tempValue);
 		 }
 
@@ -191,7 +188,7 @@ public class RemoteConfigPageHandler extends AbstractHttpRequestHandler {
 			 
 			 tempValue	=	StringUtils.replace(remoteConnDataTypeOption, IHttpHandlers.DELIMITER_DATATYPENAME, value);
 			 tempValue	=	StringUtils.replace(tempValue, IHttpHandlers.DELIMITER_DATATYPEID, value);			    		 
-		     System.out.println(tempValue);
+		     //System.out.println(tempValue);
 		     remoteConnDataTypeSB.append(tempValue);
 		 }
 

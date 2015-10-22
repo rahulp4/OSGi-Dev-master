@@ -1,18 +1,18 @@
 package com.intellizones.gateway.dataobjects;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.w3c.dom.Document;
 
 public class ConnectionConfigDTO extends CommonDTO {
 
 	public ConnectionConfigDTO(){
 		fieldIDAndTypeMap	=	new HashMap<String, String>();
+		locAndRemoteFieldMap	=	new HashMap<String, String>();
 	}
 	
-	private  String connectionId	=	null;
-	private  String jsonString		=	null;
-	private  String xmlString		=	null;
-	
-	private HashMap<String, String> remoteDataFieldsKeyMap	=	null;
 	
 	
 	public HashMap<String, String> getRemoteDataFieldsKeyMap() {
@@ -79,13 +79,8 @@ public class ConnectionConfigDTO extends CommonDTO {
 		return this.fieldIDAndTypeMap.get(fieldName);
 	}
 
-	private  String connectionName						=	null;
-	private  String remoteConnType						=	null;
-	private  String remoteRESTConnURL					=	null;
-	private  String securityKey							=	null;
-	private HashMap<String, String>	fieldIDAndTypeMap	=	null;
 	
-	private  String locDeviceName						=	null;
+	
 	public String getLocPortName() {
 		return locPortName;
 	}
@@ -126,12 +121,6 @@ public class ConnectionConfigDTO extends CommonDTO {
 		this.locAndRemoteFieldMap = locAndRemoteFieldMap;
 	}
 
-	private  String locDeviceId						=	null;
-	private  String locConnType						=	null;
-	private  String locPortName						=	null;
-	private  String locDataSize						=	null;
-	
-	private HashMap<String, String>	locAndRemoteFieldMap	=	null;
 	
 	public void addLocAndRemoteFieldMap(String key,String value){
 		this.locAndRemoteFieldMap.put(key, value);
@@ -142,4 +131,101 @@ public class ConnectionConfigDTO extends CommonDTO {
 	}
 	
 
+	public String getLocalFieldIndexFrom() {
+		return localFieldIndexFrom;
+	}
+	public void setLocalFieldIndexFrom(String localFieldIndexFrom) {
+		this.localFieldIndexFrom = localFieldIndexFrom;
+	}
+	public String getLocalFieldIndexTo() {
+		return localFieldIndexTo;
+	}
+	public void setLocalFieldIndexTo(String localFieldIndexTo) {
+		this.localFieldIndexTo = localFieldIndexTo;
+	}
+
+
+
+	public String getLocalSensorDataFormat() {
+		return localSensorDataFormat;
+	}
+	public void setLocalSensorDataFormat(String localSensorDataFormat) {
+		this.localSensorDataFormat = localSensorDataFormat;
+	}
+	
+	private  String connectionId	=	null;
+	private  String jsonString		=	null;
+	private  String xmlString		=	null;
+	private HashMap<String, String> remoteDataFieldsKeyMap	=	null;
+	private  String connectionName						=	null;
+	private  String remoteConnType						=	null;
+	private  String remoteRESTConnURL					=	null;
+	private  String securityKey							=	null;
+	private HashMap<String, String>	fieldIDAndTypeMap	=	null;
+	private  String locDeviceName						=	null;
+	private  String locDeviceId						=	null;
+	private  String locConnType						=	null;
+	private  String locPortName						=	null;
+	private  String locDataSize						=	null;
+	private HashMap<String, String>	locAndRemoteFieldMap	=	null;
+	private String localFieldIndexFrom	=	null;
+	private String localFieldIndexTo		=	null;
+	private String localSensorDataFormat	=	null;
+	private Document xmlDocument	=	null;
+	
+	
+	public Document getXmlDocument() {
+		return xmlDocument;
+	}
+
+
+
+	public void setXmlDocument(Document xmlDocument) {
+		this.xmlDocument = xmlDocument;
+	}
+
+
+
+	public String toString() {
+		String toString	=	"<connectionId>"+connectionId+"</connectionId>"+
+		"<jsonString>"+jsonString+"</jsonString>"+
+		"<xmlString>"+xmlString+"</xmlString>"+
+		"<connectionName>"+connectionName+"</connectionName>"+
+		"<remoteConnType>"+remoteConnType+"</remoteConnType>"+
+		"<remoteRESTConnURL>"+remoteRESTConnURL+"</remoteRESTConnURL>"+
+		"<securityKey>"+securityKey+"</securityKey>"+		
+		"<locDeviceName>"+locDeviceName+"</locDeviceName>"+		
+		"<locDeviceId>"+locDeviceId+"</locDeviceId>"+		
+		"<locConnType>"+locConnType+"</locConnType>"+		
+		"<locPortName>"+locPortName+"</locPortName>"+		
+		"<locDataSize>"+locDataSize+"</locDataSize>"+		
+		"<localFieldIndexFrom>"+localFieldIndexFrom+"</localFieldIndexFrom>"+		
+		"<localFieldIndexTo>"+localFieldIndexTo+"</localFieldIndexTo>"+		
+		"<localSensorDataFormat>"+localSensorDataFormat+"</localSensorDataFormat>";
+		
+		if(locAndRemoteFieldMap!=null ){
+			Set keySet	=	locAndRemoteFieldMap.keySet();
+			Iterator<String> it	= keySet.iterator();
+			while(it.hasNext()){
+				String key	=	it.next();
+				String	value	=	locAndRemoteFieldMap.get(key);
+				toString=toString+"<"+key+">"+value+"</"+key+">";
+			}
+			
+			
+		}
+		
+		if(fieldIDAndTypeMap!=null ){
+			Set keySet	=	fieldIDAndTypeMap.keySet();
+			Iterator<String> it	= keySet.iterator();
+			while(it.hasNext()){
+				String key	=	it.next();
+				String	value	=	fieldIDAndTypeMap.get(key);
+				toString=toString+"<"+key+">"+value+"</"+key+">";
+			}
+			
+		}
+		
+		return toString;
+	}
 }

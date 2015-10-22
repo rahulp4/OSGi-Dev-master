@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: rpoddar
+Build-Jdk: 1.7.0_45
+Specification-Title: com.remoteconnet
+Specification-Version: 0.0.1-SNAPSHOT
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: com.remoteconnet
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.remoteconnet
+Implementation-Vendor: The Apache Software Foundation
+Created-By: Maven Integration for Eclipse
+

@@ -10,7 +10,6 @@ import org.osgi.service.http.NamespaceException;
 import org.osgi.util.tracker.ServiceTracker;
 import org.osgi.util.tracker.ServiceTrackerCustomizer;
 
-import com.intellizones.gateway.webproject.util.ApplicationDataHolder;
 
 public class Activator implements BundleActivator,ServiceTrackerCustomizer {
 	static private BundleContext context;
@@ -79,7 +78,7 @@ public class Activator implements BundleActivator,ServiceTrackerCustomizer {
 				//service.registerServlet("/hello", new HttpRequestHandler(), null, null);
 				service.registerServlet("/init", new IntellizonesServlet(), null, null);
 				service.registerResources("/files", "/web", null);
-				ApplicationDataHolder.getApplicationDataHolder();
+				//ApplicationDataHolder.getApplicationDataHolder();
 			}
 		} catch (NamespaceException e) {
 			e.printStackTrace();

@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.intellizones.gateway.dataobjects.IDataObjects;
+import com.intellizones.gateway.datastoremanager.util.AppProperty;
 import com.intellizones.gateway.webproject.exception.AppException;
-import com.intellizones.gateway.webproject.util.ApplicationDataHolder;
 import com.intellizones.gateway.webproject.util.ApplicationSessionManager;
 import com.intellizones.gateway.webproject.util.ApplicationUtil;
 
@@ -32,15 +32,11 @@ public class LoginPageHandler extends AbstractHttpRequestHandler {
 		// TODO Auto-generated method stub
 		String userName		=	req.getParameter("username");
 		String password		=	req.getParameter("password");
-		String configUser	=	ApplicationDataHolder.getApplicationDataHolder().getData("user");
-		String configPwd	=	ApplicationDataHolder.getApplicationDataHolder().getData("password");
-
-		ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(), "User Submitted : "+userName);
-		ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(), "User Config    : "+configUser);
-		
-		ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(), "Pwd Submitted : "+password);
+		String configUser	=	AppProperty.getProperty("user");
+		String configPwd	=	AppProperty.getProperty("password");
 		ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(), "Pwd Config    : "+configPwd);
 
+		System.out.println("\n configPwd "+configPwd);
 		if(userName!=null && userName.equals(configUser) ){
 			if(password!=null && password.equals(configPwd) ){
 				

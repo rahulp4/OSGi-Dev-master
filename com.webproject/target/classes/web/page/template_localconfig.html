@@ -18,19 +18,21 @@
           <label for="mail">Data Size:</label>
           <input type="number" id="locDataSize" name="locDataSize" required=true>
 
-          <label for="mail">Field Mapping:</label>
-          <input type="text" id="field1" name="field1" required=true>
-                    
-        
- 
+          <label for="text">Local Sensor Data Format</label>
+                <SELECT name="localSensorDataFormat" >
+			     	<OPTION value="FIXED">Fixed Lenght</OPTION>
+                    <OPTION value="JSON">JSoN</OPTION>
+                    <OPTION value="XML">XML Data</OPTION>
+                </SELECT>
 
-<INPUT type="button" value="Add Row" onclick="addRowLocal('dataTable')" />
+	<INPUT type="button" value="Add Row" onclick="addRowLocal('dataTable')" />
  
     <INPUT type="button" value="Delete Row" onclick="deleteRowLocal('dataTable')" />
 
 <TABLE id="dataTable" width="350px" border="1">
  <tr>
     <th>Field Id</th>
+    <th>Remote From</th>
     <th>Field From</th>
     <th>Field To</th>
 
@@ -49,7 +51,8 @@
                 %remotefielddatalist%
                 </SELECT>
             </TD>
-			<TD><INPUT type="text" name=localFieldNames" id="jsonKey"/></TD>
+			<TD><INPUT type="text" name="localFieldIndexFrom" id="localFieldIndexFrom"/></TD>
+			<TD><INPUT type="text" name="localFieldIndexTo" id="localFieldIndexTo"/></TD>
 	
         </TR>
     </TABLE>

@@ -28,9 +28,11 @@ public class ApplicationUtil {
 				} 
 			return template;
 		}
-
+		static boolean showlog	=	false;
 		public static void printDebugMessage(String tag,String message){
-			System.out.println("\n "+tag+" :: "+message);
+			if(showlog){
+				System.out.println("\n "+tag+" :: "+message);
+			}
 		}
 }
 

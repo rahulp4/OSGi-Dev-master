@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1444825600920
+Bnd-LastModified: 1445343674470
 Build-Jdk: 1.7.0_45
 Built-By: rpoddar
 Bundle-Activator: com.intellizones.gateway.datahandler.DataHandlerActiva
  tor
 Bundle-ClassPath: .,gson-2.3.1.jar,json-20140107.jar,com.dataobjects-0.0
- .1-SNAPSHOT.jar
+ .1-SNAPSHOT.jar,commons-lang3-3.4.jar
 Bundle-Description: The Apache Software Foundation provides support for 
  the Apache community of open-source software projects.    The Apache pr
  ojects are characterized by a collaborative, consensus based developmen
@@ -21,17 +21,18 @@ Bundle-SymbolicName: com.datahandler
 Bundle-Vendor: The Apache Software Foundation
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Embed-Dependency: gson,json,com.dataobjects
+Embed-Dependency: gson,json,com.dataobjects,commons-lang3
 Embedded-Artifacts: gson-2.3.1.jar;g="com.google.code.gson";a="gson";v="
  2.3.1",json-20140107.jar;g="org.json";a="json";v="20140107",com.dataobj
  ects-0.0.1-SNAPSHOT.jar;g="com.dataobjects";a="com.dataobjects";v="0.0.
- 1-SNAPSHOT"
+ 1-SNAPSHOT",commons-lang3-3.4.jar;g="org.apache.commons";a="commons-lan
+ g3";v="3.4"
 Export-Package: com.intellizones.gateway.datahandler;uses:="org.osgi.fra
  mework";version="0.0.1.SNAPSHOT",com.intellizones.gateway.datahandler.j
  son;uses:="com.intellizones.gateway.datahandler.xml";version="0.0.1.SNA
  PSHOT",com.intellizones.gateway.datahandler.util;version="0.0.1.SNAPSHO
- T",com.intellizones.gateway.datahandler.xml;uses:="org.xml.sax,org.xml.
- sax.helpers";version="0.0.1.SNAPSHOT"
+ T",com.intellizones.gateway.datahandler.xml;uses:="org.w3c.dom,org.xml.
+ sax,org.xml.sax.helpers";version="0.0.1.SNAPSHOT"
 Import-Package: javax.xml.namespace,javax.xml.parsers,javax.xml.transfor
  m,javax.xml.transform.dom,javax.xml.transform.stream,javax.xml.xpath,or
  g.osgi.framework;version="[1.5,2)",org.w3c.dom,org.xml.sax,org.xml.sax.

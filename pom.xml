@@ -48,5 +48,7 @@
     <module>com.jsonhandler</module>
     <module>com.dataobjects</module>
     <module>com.datahandler</module>
+    <module>com.remoteconnet</module>
+    <module>com.local.usbreader</module>
   </modules>
 </project>

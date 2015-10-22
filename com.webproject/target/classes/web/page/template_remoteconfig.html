@@ -11,17 +11,17 @@
 
           <label for="mail">Remote Connectivity Type:</label>
           <!-- <input type="text" id="remoteConnType" name="remoteConnType" required=true> -->
-          
-          <label for="mail">JSON Message Format</label>
-		  
-		  <textarea name="jsonString" id="jsonString" cols="25" rows="7"></textarea> 
-		 <SELECT name="remoteConnType" >
+		  <SELECT name="remoteConnType" >
 		 %remoteconndatatypes%
 <!-- <OPTION value="REST">REST</OPTION>
                     <OPTION value="MQTT">REST</OPTION>
                     <OPTION value="WebSocket">REST</OPTION>
  -->                                        
           </SELECT>
+          
+          <label for="mail">JSON Message Format</label>
+		  
+		  <textarea name="jsonString" id="jsonString" cols="25" rows="7"></textarea> 
           <label for="mail">REST URL:</label>
           <input type="url" id="remoteRESTConnURL" name="remoteRESTConnURL" required=true>
           

@@ -17,6 +17,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+<dependency>
+	<groupId>org.apache.commons</groupId>
+	<artifactId>commons-lang3</artifactId>
+	<version>3.4</version>
+	<scope>provided</scope>
+</dependency>  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -86,7 +92,7 @@
                         <Bundle-Version>${project.version}</Bundle-Version>
 						<Bundle-Activator>com.intellizones.gateway.datahandler.DataHandlerActivator</Bundle-Activator>												                      
                         <Export-Package>com.intellizones.gateway.datahandler.*</Export-Package>
-						<Embed-Dependency>gson,json,com.dataobjects</Embed-Dependency>                        
+						<Embed-Dependency>gson,json,com.dataobjects,commons-lang3</Embed-Dependency>                        
                     </instructions>
                 </configuration>
             </plugin>

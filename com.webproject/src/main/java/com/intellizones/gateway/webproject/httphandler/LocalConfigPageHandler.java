@@ -12,13 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.intellizones.gateway.datahandler.json.JsonParsing;
 import com.intellizones.gateway.dataobjects.ConnectionConfigDTO;
 import com.intellizones.gateway.dataobjects.IDataObjects;
-import com.intellizones.gateway.dataobjects.exception.AppValidationException;
 import com.intellizones.gateway.datastoremanager.IDataStoreManager;
 import com.intellizones.gateway.datastoremanager.XMLDataStoreManager;
-import com.intellizones.gateway.jsonhandler.JSONDataFormatHandler;
 import com.intellizones.gateway.webproject.exception.AppException;
 import com.intellizones.gateway.webproject.util.ApplicationSessionManager;
 import com.intellizones.gateway.webproject.util.ApplicationUtil;
@@ -66,6 +63,8 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		//IDataStoreManager
 		IDataStoreManager	xmlDataStore	=	new XMLDataStoreManager();
 		xmlDataStore.persistDataObject(connectionConfigDTO, connectionConfigDTO.getPrimaryKey());
+		
+		//ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), connectionConfigDTO.toString());
 	}
 
 	@Override
@@ -110,8 +109,11 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		ConnectionConfigDTO connectionConfigDTO	=	(ConnectionConfigDTO)ApplicationSessionManager.getFromSession(req, ApplicationSessionManager.REMOTECONFIGCONN);
 		Map<String, String[]> map = req.getParameterMap();
 		
-		String[] fieldNames = null;
-		String[] dataTypes = null;
+		//String[] fieldNames = null;
+		String[] remoteFieldDataKey = null;
+		String[] localFieldDataFromIndex = null;
+		String[] localFieldDataToIndex= null;
+				 
 		
 		//ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(),"Subitted");
 		for (Entry<String, String[]> entry : map.entrySet()) {
@@ -119,6 +121,8 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		    String [] values	=	entry.getValue();
 		    //localFieldNames
 		    
+//		    System.out.println("Names : "+name);
+//		    System.out.println("Values : "+values);
 		    if(name.equals("locDeviceName")){
 		    	connectionConfigDTO.setLocDeviceName(req.getParameter("locDeviceName"));
 		    } else if(name.equals("locDeviceId")){
@@ -130,18 +134,38 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		    } else if(name.equals("locDataSize")){
 		    	connectionConfigDTO.setLocDataSize(req.getParameter("locDataSize"));
 		    	ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), req.getParameter("locDataSize"));
-		    } 
-		    
-		    if(name.equals("localFieldNames")){
-		    	fieldNames	=	values;
-		    } else if(name.equals("remoteFieldNames")){
-		    	dataTypes	=	values;
+		    } else if(name.equals("localSensorDataFormat")){
+		    	connectionConfigDTO.setLocalSensorDataFormat(req.getParameter("localSensorDataFormat"));
+		    	System.out.println("\n LocalSensorDatFormat "+req.getParameter("localSensorDataFormat"));
+		    } else {
+		    	
 		    }
+	    	
+		    if(req.getParameter("localSensorDataFormat")!=null 
+	    			&& req.getParameter("localSensorDataFormat").equals("FIXED")){
+		    	
+		    	if(name.equals("localFieldIndexFrom")){
+		    		localFieldDataFromIndex	=	values;
+		    	}
+		    	
+		    	if(name.equals("localFieldIndexTo")){
+		    		localFieldDataToIndex	=	values;
+		    	}
+		    	
+		    	if(name.equals("remoteFieldNames")){
+		    		remoteFieldDataKey	=	values;
+		    	}
+	    	}
+
 		    
 		    ApplicationUtil.printDebugMessage(this.getClass().getCanonicalName(),name + ": " + Arrays.toString(values));
 		}
 		
-		setFieldValues(connectionConfigDTO,fieldNames,dataTypes);
+	    if(req.getParameter("localSensorDataFormat")!=null 
+    			&& req.getParameter("localSensorDataFormat").equals("FIXED")){
+	    	setFieldValues(connectionConfigDTO,localFieldDataFromIndex,remoteFieldDataKey,localFieldDataToIndex);
+	    }		    
+
 		connectionConfigDTO.setPrimaryKey(connectionConfigDTO.getLocDeviceId());
 		
 		return connectionConfigDTO;
@@ -153,7 +177,11 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		StringBuffer	remoteConnDataTypeSB	=	new StringBuffer();
 		try{
 		ConnectionConfigDTO connConfigDTO	=	(ConnectionConfigDTO)ApplicationSessionManager.getFromSession(req, ApplicationSessionManager.REMOTECONFIGCONN);
-		HashMap	remoteFieldMap	=	connConfigDTO.getFieldIDAndTypeMap();
+		//HashMap	remoteFieldMap	=	connConfigDTO.getFieldIDAndTypeMap();
+		HashMap	remoteFieldMap	=	connConfigDTO.getRemoteDataFieldsKeyMap();
+		//connectionConfigDTO.setRemoteDataFieldsKeyMap(hashMap);
+		//connectionConfigDTO.setXmlString(finalXML);
+		
 		Set s	=	remoteFieldMap.keySet();
 		if(s!=null){
 			Iterator	iterateRemoteData	=	s.iterator();
@@ -163,7 +191,6 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 				 String tempValue	=	null;
 				 tempValue	=	StringUtils.replace(remoteConnDataTypeOption, IHttpHandlers.DELIMITER_DATATYPENAME, value);
 				 tempValue	=	StringUtils.replace(tempValue, IHttpHandlers.DELIMITER_DATATYPEID, value);			    		 
-			     System.out.println(tempValue);
 			     remoteConnDataTypeSB.append(tempValue);
 			 }
 	
@@ -180,14 +207,15 @@ public class LocalConfigPageHandler extends AbstractHttpRequestHandler {
 		}
 	}
 
-	private void setFieldValues(ConnectionConfigDTO connectionConfigDTO,String[] fieldNames,String[] dataTypes){
-		if(fieldNames!=null && fieldNames.length>0 && dataTypes!=null && dataTypes.length>0){
-			for(int index=0;index<fieldNames.length;index++){
-				ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), fieldNames[index]+": "+dataTypes[index]);
-				connectionConfigDTO.addLocAndRemoteFieldMap(fieldNames[index], dataTypes[index]);
+	private void setFieldValues(ConnectionConfigDTO connectionConfigDTO,String[] localFieldDataFromIndex,String[] dataTypes,String [] localFieldDataToIndex){
+		//if(localFieldDataFromIndex!=null && localFieldDataFromIndex.length>0 && dataTypes!=null && dataTypes.length>0){
+			for(int index=0;index<localFieldDataFromIndex.length;index++){
+				//ApplicationUtil.printDebugMessage(this.getClass().getSimpleName(), localFieldDataFromIndex[index]+": "+dataTypes[index]);
+				//System.out.println(dataTypes[index]+": VALUE :"+localFieldDataFromIndex[index]+":"+localFieldDataToIndex[index]);
+				connectionConfigDTO.addLocAndRemoteFieldMap(dataTypes[index],localFieldDataFromIndex[index]+":"+localFieldDataToIndex[index]);
 			}
 			
-		}
+		//}
 	}
 
 }
